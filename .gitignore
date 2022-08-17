@@ -1,3 +1,4 @@
 node_modules/
 .txt
 .env
+src/config/dev.ts
