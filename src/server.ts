@@ -1,15 +1,24 @@
-import express, { Request, Response } from "express";
+import express, { Request, Response, json } from "express";
+import mongoose from "mongoose";
 import cookieSession from "cookie-session";
 import session from "express-session";
 import flash from "express-flash";
 import passport from "passport";
+
 const keys = require('./config/keys');
 require("dotenv").config();
 import './models/userModel'; 
-// to execute the code in the passport file:
 import './services/passport';
 
 const app = express(), port = process.env.PORT || 4000;
+
+// connect to MongoDB
+mongoose.connect(keys.mongoURI)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
+
+// enable body parser:
+app.use(json());
       
 //enable use of cookies:
 // app.use(
@@ -18,18 +27,22 @@ const app = express(), port = process.env.PORT || 4000;
 //         keys: [keys.cookieKey]
 //     })
 // );
-// enable session:
+//enable session:
 app.use(session({
     resave: true,
     saveUninitialized: true,
     secret: keys.cookieKey,
+    cookie: {secure: true}
 }));
+
 //tell passport to make use of cookies for user authentication:
 app.use(passport.initialize());
 app.use(passport.session());
+
 // enable flash messages:
 app.use(flash());
 
+// routes
 require('./routes/authRoutes')(app);
 require('./routes/transactionRoutes')(app);
 require('./routes/goalRoutes')(app);

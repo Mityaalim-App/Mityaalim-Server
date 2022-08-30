@@ -6,10 +6,10 @@ import { body, check, validationResult } from "express-validator";
 import jwt from 'jsonwebtoken';
 import { User, UserDocument } from "../models/userModel";
 import '../services/passport';
-const keys = require('./config/keys');
+const keys = require('../config/keys');
 
 
-export default (app: express.Application) => {
+module.exports = (app: express.Application) => {
 
    // sign-in with user and password //
 
@@ -42,7 +42,7 @@ export default (app: express.Application) => {
    });
 
    // register //
-   
+
    app.post('/api/register', async (req: Request, res: Response, next: NextFunction): Promise<void> => {
       // perform email and password checks:
       await check("email", "Email is not valid").isEmail().run(req);
