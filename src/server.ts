@@ -7,19 +7,19 @@ import passport from "passport";
 
 const keys = require('./config/keys');
 require("dotenv").config();
-import './models/userModel'; 
+import './models/userModel';
 import './services/passport';
 
 const app = express(), port = process.env.PORT || 4000;
 
 // connect to MongoDB
 mongoose.connect(keys.mongoURI)
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
 
 // enable body parser:
 app.use(json());
-      
+
 //enable use of cookies:
 // app.use(
 //     cookieSession({
@@ -29,10 +29,10 @@ app.use(json());
 // );
 //enable session:
 app.use(session({
-    resave: true,
-    saveUninitialized: true,
-    secret: keys.cookieKey,
-    cookie: {secure: true}
+  resave: true,
+  saveUninitialized: true,
+  secret: keys.cookieKey,
+  cookie: { secure: true }
 }));
 
 //tell passport to make use of cookies for user authentication:

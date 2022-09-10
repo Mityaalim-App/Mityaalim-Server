@@ -2,11 +2,11 @@
   "name": "mityaalim-server",
   "version": "1.0.0",
   "description": "",
-  "main": "bin/server.js",
+  "main": "dist/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon .",
-    "dev": "npx nodemon src/server.ts",
+    "start": "tsc && node .",
+    "dev": "npx nodemon ./src/server.ts",
     "build": "npx tsc"
   },
   "repository": {
@@ -26,7 +26,7 @@
     "body-parser": "^1.20.0",
     "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
-    "express": "4.18.1",
+    "express": "^4.18.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
@@ -48,7 +48,7 @@
     "@types/express-flash": "^0.0.2",
     "@types/express-session": "^1.17.5",
     "@types/jsonwebtoken": "^8.5.8",
-    "@types/node": "^18.7.6",
+    "@types/node": "^18.7.16",
     "@types/passport": "^1.0.10",
     "@types/passport-facebook": "^2.1.11",
     "@types/passport-google-oauth20": "^2.0.11",
@@ -59,6 +59,6 @@
     "dotenv": "^16.0.1",
     "nodemon": "^2.0.19",
     "ts-node": "^10.9.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.8.3"
   }
 }
