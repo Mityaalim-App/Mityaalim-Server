@@ -4,6 +4,7 @@ import cookieSession from "cookie-session";
 import session from "express-session";
 import flash from "express-flash";
 import passport from "passport";
+const userRouter = require('./routes/userRoutes')
 
 const keys = require('./config/keys');
 require("dotenv").config();
@@ -43,6 +44,7 @@ app.use(passport.session());
 app.use(flash());
 
 // routes
+app.use('/user', userRouter)
 require('./routes/authRoutes')(app);
 require('./routes/transactionRoutes')(app);
 require('./routes/goalRoutes')(app);
