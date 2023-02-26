@@ -1,5 +1,5 @@
 node_modules/
 .txt
-.env
-.dev.ts
+env
+dev.ts
 src/config/dev.ts
