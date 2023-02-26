@@ -12,4 +12,10 @@ module.exports = {
     twitterClientId: process.env.TWITTER_CLIENT_ID,
     twitterClientSecret: process.env.TWITTER_CLIENT_SECRET,
     mongoURI: process.env.MONGO_URI,
+    youtubeChannelId: process.env.YOUTUBE_CHANNEL_ID,
+    youtubeApiKey: process.env.YOUTUBE_API_KEY,
+    spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
+    spotifyClientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+    spotifyOAuthToken: process.env.SPOTIFY_OAUTH_TOKEN,
+    spotifyShowId: process.env.SPOTIFY_SHOW_ID
 };

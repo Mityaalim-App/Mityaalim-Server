@@ -1,4 +1,5 @@
 node_modules/
 .txt
 .env
+.dev.ts
 src/config/dev.ts

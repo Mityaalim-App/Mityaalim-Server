@@ -5,7 +5,7 @@ import session from "express-session";
 import flash from "express-flash";
 import passport from "passport";
 const userRouter = require('./routes/userRoutes')
-
+const videoRoutes = require('./routes/videoRoutes')
 const keys = require('./config/keys');
 require("dotenv").config();
 import './models/userModel';
@@ -49,6 +49,8 @@ require('./routes/authRoutes')(app);
 require('./routes/transactionRoutes')(app);
 require('./routes/goalRoutes')(app);
 require('./routes/budgetRoutes')(app);
+// require('./routes/videoRoutes')(app);
+app.use('/api/video', videoRoutes);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World");

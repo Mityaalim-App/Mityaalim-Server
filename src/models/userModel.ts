@@ -6,6 +6,9 @@ export type UserDocument = mongoose.Document & {
   password: string;
   resetPasswordToken: string;
   resetPasswordExpires: string;
+  phoneNumber: string;
+  tempCode?: string;
+  tempCodeExpiration?: string;
 
   googleId: string;
   facebookId: string;
